@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
+    <title>Responsive Web Foto dengan Modal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .image-container {
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: white;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            -webkit-touch-callout: none; /* Disable iOS touch menu */
+            -webkit-user-select: none;  /* Disable selection */
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .image-container img:hover {
+            transform: scale(1.05);
+        }
+
+        .image-name {
+            margin: 10px 0;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .image-container .download-button {
+            text-decoration: none;
+            padding: 8px 12px;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .image-container .download-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        /* Media Queries */
+        @media (max-width: 576px) { /* HP */
+            .image-container {
+                width: 100%;
+            }
+        }
+
+        @media (min-width: 577px) and (max-width: 768px) { /* Tablet */
+            .image-container {
+                width: 45%;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1200px) { /* Laptop */
+            .image-container {
+                width: 30%;
+            }
+        }
+
+        @media (min-width: 1201px) { /* Desktop besar */
+            .image-container {
+                width: 22%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Modal Pop-Up -->
+    <div id="modal" class="modal" onclick="closeModal()">
+        <img id="modalImage" src="" alt="Foto">
+    </div>
+
+    <!-- Foto-Foto -->
+    <div class="image-container">
+        <img src="Foto/1.jpg" alt="Foto 1" onclick="openModal('Foto/1.jpg')">
+        <div class="image-name">KELAS : X A</div>
+        <a href="Foto/1.jpg" download="Foto_1.jpg" class="download-button">Download</a>
+    </div>
+    <div class="image-container">
+        <img src="Foto/2.jpg" alt="Foto 2" onclick="openModal('Foto/2.jpg')">
+        <div class="image-name">KELAS : X B</div>
+        <a href="Foto/2.jpg" download="Foto_2.jpg" class="download-button">Download</a>
+    </div>
+    <div class="image-container">
+        <img src="Foto/3.jpg" alt="Foto 3" onclick="openModal('Foto/3.jpg')">
+        <div class="image-name">KELAS : X C</div>
+        <a href="Foto/3.jpg" download="Foto_3.jpg" class="download-button">Download</a>
+    </div>
+    <div class="image-container">
+        <img src="Foto/4.jpg" alt="Foto 4" onclick="openModal('Foto/4.jpg')">
+        <div class="image-name">KELAS : X D</div>
+        <a href="Foto/4.jpg" download="Foto_4.jpg" class="download-button">Download</a>
+    </div>
+    <div class="image-container">
+        <img src="Foto/5.jpg" alt="Foto 5" onclick="openModal('Foto/5.jpg')">
+        <div class="image-name">KELAS : X E</div>
+        <a href="Foto/5.jpg" download="Foto_5.jpg" class="download-button">Download</a>
+    </div>
+    <div class="image-container">
+        <img src="Foto/6.jpg" alt="Foto 6" onclick="openModal('Foto/6.jpg')">
+        <div class="image-name">KELAS : X F</div>
+        <a href="Foto/6.jpg" download="Foto_6.jpg" class="download-button">Download</a>
+    </div>
+    <div class="image-container">
+        <img src="Foto/7.jpg" alt="Foto 7" onclick="openModal('Foto/7.jpg')">
+        <div class="image-name">KELAS : X G</div>
+        <a href="Foto/7.jpg" download="Foto_7.jpg" class="download-button">Download</a>
+    </div>
+    <div class="image-container">
+        <img src="Foto/8.jpg" alt="Foto 8" onclick="openModal('Foto/8.jpg')">
+        <div class="image-name">KELAS : X H</div>
+        <a href="Foto/8.jpg" download="Foto_8.jpg" class="download-button">Download</a>
+    </div>
+    <div class="image-container">
+        <img src="Foto/9.jpg" alt="Foto 9" onclick="openModal('Foto/9.jpg')">
+        <div class="image-name">KELAS : X I</div>
+        <a href="Foto/9.jpg" download="Foto_9.jpg" class="download-button">Download</a>
+    </div>
+    <div class="image-container">
+        <img src="Foto/10.jpg" alt="Foto 10" onclick="openModal('Foto/10.jpg')">
+        <div class="image-name">KELAS : X J</div>
+        <a href="Foto/10.jpg" download="Foto_10.jpg" class="download-button">Download</a>
+    </div>
+    <div class="image-container">
+        <img src="Foto/11.jpg" alt="Foto 11" onclick="openModal('Foto/11.jpg')">
+        <div class="image-name">KELAS : XI A1</div>
+        <a href="Foto/11.jpg" download="Foto_11.jpg" class="download-button">Download</a>
+    </div>
+    <div class="image-container">
+        <img src="Foto/12.jpg" alt="Foto 12" onclick="openModal('Foto/12.jpg')">
+        <div class="image-name">KELAS : XI A2</div>
+        <a href="Foto/12.jpg" download="Foto_12.jpg" class="download-button">Download</a>
+    </div>
+    <div class="image-container">
+        <img src="Foto/13.jpg" alt="Foto 13" onclick="openModal('Foto/13.jpg')">
+        <div class="image-name">KELAS : XI A3</div>
+        <a href="Foto/13.jpg" download="Foto_13.jpg" class="download-button">Download</a>
+    </div>
+    <div class="image-container">
+        <img src="Foto/14.jpg" alt="Foto 14" onclick="openModal('Foto/14.jpg')">
+        <div class="image-name">KELAS : XI B1</div>
+        <a href="Foto/14.jpg" download="Foto_14.jpg" class="download-button">Download</a>
+    </div>
+    <div class="image-container">
+        <img src="Foto/15.jpg" alt="Foto 15" onclick="openModal('Foto/15.jpg')">
+        <div class="image-name">KELAS : XI B2</div>
+        <a href="Foto/15.jpg" download="Foto_15.jpg" class="download-button">Download</a>
+    </div>
+    <div class="image-container">
+        <img src="Foto/16.jpg" alt="Foto 16" onclick="openModal('Foto/16.jpg')">
+        <div class="image-name">KELAS : XI C1</div>
+        <a href="Foto/16.jpg" download="Foto_16.jpg" class="download-button">Download</a>
+    </div>
+    <div class="image-container">
+        <img src="Foto/17.jpg" alt="Foto 17" onclick="openModal('Foto/17.jpg')">
+        <div class="image-name">KELAS : XI C2</div>
+        <a href="Foto/17.jpg" download="Foto_17.jpg" class="download-button">Download</a>
+    </div>
+    <div class="image-container">
+        <img src="Foto/18.jpg" alt="Foto 18" onclick="openModal('Foto/18.jpg')">
+        <div class="image-name">KELAS : XI C3</div>
+        <a href="Foto/18.jpg" download="Foto_18.jpg" class="download-button">Download</a>
+    </div>
+    <div class="image-container">
+        <img src="Foto/19.jpg" alt="Foto 19" onclick="openModal('Foto/19.jpg')">
+        <div class="image-name">KELAS : XI C4</div>
+        <a href="Foto/19.jpg" download="Foto_19.jpg" class="download-button">Download</a>
+    </div>
+    <div class="image-container">
+        <img src="Foto/20.jpg" alt="Foto 20" onclick="openModal('Foto/20.jpg')">
+        <div class="image-name">KELAS : XI D</div>
+        <a href="Foto/20.jpg" download="Foto_20.jpg" class="download-button">Download</a>
+    </div>
+    <div class="image-container">
+        <img src="Foto/21.jpg" alt="Foto 21" onclick="openModal('Foto/21.jpg')">
+        <div class="image-name">KELAS : XII BAHASA</div>
+        <a href="Foto/21.jpg" download="Foto_21.jpg" class="download-button">Download</a>
+    </div>
+    <div class="image-container">
+        <img src="Foto/22.jpg" alt="Foto 22" onclick="openModal('Foto/22.jpg')">
+        <div class="image-name">KELAS : XII IPA 1</div>
+        <a href="Foto/22.jpg" download="Foto_22.jpg" class="download-button">Download</a>
+    </div>
+    <div class="image-container">
+        <img src="Foto/23.jpg" alt="Foto 23" onclick="openModal('Foto/23.jpg')">
+        <div class="image-name">KELAS : XII IPA 2</div>
+        <a href="Foto/23.jpg" download="Foto_23.jpg" class="download-button">Download</a>
+    </div>
+    <div class="image-container">
+        <img src="Foto/24.jpg" alt="Foto 24" onclick="openModal('Foto/24.jpg')">
+        <div class="image-name">KELAS : XII IPA 3</div>
+        <a href="Foto/24.jpg" download="Foto_24.jpg" class="download-button">Download</a>
+    </div>
+    <div class="image-container">
+        <img src="Foto/25.jpg" alt="Foto 25" onclick="openModal('Foto/25.jpg')">
+        <div class="image-name">KELAS : XII IPA 4</div>
+        <a href="Foto/25.jpg" download="Foto_25.jpg" class="download-button">Download</a>
+    </div>
+    <div class="image-container">
+        <img src="Foto/26.jpg" alt="Foto 26" onclick="openModal('Foto/26.jpg')">
+        <div class="image-name">KELAS : XII IPA 5</div>
+        <a href="Foto/26.jpg" download="Foto_26.jpg" class="download-button">Download</a>
+    </div>
+    <div class="image-container">
+        <img src="Foto/27.jpg" alt="Foto 27" onclick="openModal('Foto/27.jpg')">
+        <div class="image-name">KELAS : XII IPS 1</div>
+        <a href="Foto/27.jpg" download="Foto_27.jpg" class="download-button">Download</a>
+    </div>
+    <div class="image-container">
+        <img src="Foto/28.jpg" alt="Foto 28" onclick="openModal('Foto/28.jpg')">
+        <div class="image-name">KELAS : XII IPS 2</div>
+        <a href="Foto/28.jpg" download="Foto_28.jpg" class="download-button">Download</a>
+    </div>
+    <div class="image-container">
+        <img src="Foto/29.jpg" alt="Foto 29" onclick="openModal('Foto/29.jpg')">
+        <div class="image-name">KELAS : XII IPS 3</div>
+        <a href="Foto/29.jpg" download="Foto_29.jpg" class="download-button">Download</a>
+    </div>
+    <div class="image-container">
+        <img src="Foto/30.jpg" alt="Foto 30" onclick="openModal('Foto/30.jpg')">
+        <div class="image-name">KELAS : XII IPS 4</div>
+        <a href="Foto/30.jpg" download="Foto_30.jpg" class="download-button">Download</a>
+    </div>
+    <!-- Tambahkan lebih banyak gambar sesuai kebutuhan -->
+
+    <script>
+        // Fungsi untuk membuka modal dan menampilkan gambar
+        function openModal(imageSrc) {
+            const modal = document.getElementById('modal');
+            const modalImage = document.getElementById('modalImage');
+            modalImage.src = imageSrc;
+            modal.classList.add('active');
+        }
+
+        // Fungsi untuk menutup modal
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.classList.remove('active');
+        }
+
+        // Mencegah menu konteks (klik kanan atau tahan lama)
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        // Mencegah zoom dengan gesture (pinch-zoom)
+        document.addEventListener('gesturestart', function(e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener('gesturechange', function(e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener('gestureend', function(e) {
+            e.preventDefault();
+        });
+
+        // Mencegah zoom dengan Ctrl + Scroll atau Ctrl + +/- pada keyboard
+        document.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey && (e.key === '+' || e.key === '-')) || e.key === 'Meta') {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
