@@ -1,0 +1,133 @@
+
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    height: 94vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: 100%;
+    height: auto;
+    z-index: -1; /* Menempatkan video di belakang konten */
+    transform: translate(-50%, -50%);
+}
+
+.container {
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.login-box {
+    text-align: center;
+}
+
+.login-header {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.login-header button {
+    background-color: #ff5353;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.login-header button.active {
+    background-color: #ff5353;
+    color: black;
+}
+
+.login-header button:hover {
+    background-color: #c20101;
+    color: white;
+}
+
+.login-form h2 {
+    margin-bottom: 20px;
+    color: white;
+}
+
+.input-field {
+    margin-bottom: 20px;
+}
+
+.input-field input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.login-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #6edb03;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.login-btn:hover {
+    background-color: #427f06;
+}
+
+.social-login {
+    margin-top: 20px;
+}
+
+.social-login a {
+    margin: 0 29px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.social-login a:hover {
+    color: #ddd;
+}
+
+.error-message {
+    color: #ffffff;
+    margin-top: 10px;
+}
+
+ #memberCountdown, #adminCountdown {
+      color: #ffffff; /* Mengatur warna teks menjadi merah */
+      font-weight: bold; /* Membuat teks menjadi tebal */
+      margin-top: 5px; /* Menambahkan sedikit jarak di atas teks */
+  }
+
+/* Animation for form transition */
+.login-form {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.login-form.show {
+    opacity: 1;
+}
